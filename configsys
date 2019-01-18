@@ -1,0 +1,32 @@
+#!/bin/sh
+
+BASEDIR="/boot"
+
+export DEBIAN_FRONTEND=noninteractive
+
+echo "[ configsys - start ]"
+
+if [ ! -d "$BASEDIR/autoexec" ]; then
+  # Control will enter here if $DIRECTORY exists.
+  echo Nothing to process.
+  exit
+fi
+
+if [ -d "$BASEDIR/autoexec/bin" ]; then
+  echo Adding $BASEDIR/autoexec/bin to temporary path
+  export PATH=$BASEDIR/autoexec/bin:$PATH
+fi
+
+if [ -f "$BASEDIR/autoexec/once.sh" ]; then
+  echo Found once.sh file, executing it now.
+  mv $BASEDIR/autoexec/once.sh /tmp/once.sh
+  bash /tmp/once.sh
+  rm /tmp/once.sh
+fi
+
+if [ -f "$BASEDIR/autoexec/always.sh" ]; then
+  echo Found always.sh file, executing it now.
+  bash $BASEDIR/autoexec/always.sh
+fi
+
+echo "[ configsys - end ]"
