@@ -1,4 +1,4 @@
 # put into /etc/cron.d/configsys
 
-@reboot root /home/pi/configsys > /tmp/configsys.log
+@reboot root /usr/bin/configsys > /tmp/configsys.log
 
