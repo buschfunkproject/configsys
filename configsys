@@ -12,6 +12,8 @@ if [ ! -d "$BASEDIR/autoexec" ]; then
   exit
 fi
 
+export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin
+
 if [ -d "$BASEDIR/autoexec/bin" ]; then
   echo Adding $BASEDIR/autoexec/bin to temporary path
   export PATH=$BASEDIR/autoexec/bin:$PATH
