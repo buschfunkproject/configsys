@@ -22,6 +22,6 @@ After booting the system the `once.sh` is executed if present. This file gets de
 
 Finally the `always.sh` is executed each time the system reboots.
 
-All output is logged to `/tmp//configsys.log`.
+All output is logged to `/tmp/configsys.log`.
  
 
